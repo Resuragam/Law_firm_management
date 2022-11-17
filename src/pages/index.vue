@@ -1,62 +1,93 @@
 <script setup lang="ts">
-const user = useUserStore()
-const name = $ref(user.savedName)
+// import image1 from '../../public/swiper/as1.jpg'
+// import image2 from '../../public/swiper/as2.jpg'
+// import image3 from '../../public/swiper/as3.jpg'
 
-const router = useRouter()
-const go = () => {
-  if (name)
-    router.push(`/hi/${encodeURIComponent(name)}`)
-}
-
-const { t } = useI18n()
+const imageSwiper = reactive([
+  {
+    id: 1,
+    url: '../../../public/swiper/as2.jpg',
+  },
+  {
+    id: 2,
+    url: '../../../public/swiper/7.jpg',
+  },
+  {
+    id: 3,
+    url: '../../../public/swiper/8.jpg',
+  },
+])
 </script>
 
 <template>
   <div>
-    <div text-4xl>
-      <div i-carbon-campsite inline-block />
-    </div>
-    <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
-      </a>
-    </p>
-    <p>
-      <em text-sm opacity-75>{{ t('intro.desc') }}</em>
-    </p>
-
-    <div py-4 />
-
-    <input
-      id="input"
-      v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      :aria-label="t('intro.whats-your-name')"
-      type="text"
-      autocomplete="false"
-      p="x4 y2"
-      w="250px"
-      text="center"
-      bg="transparent"
-      border="~ rounded gray-200 dark:gray-700"
-      outline="none active:none"
-      @keydown.enter="go"
-    >
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
-
     <div>
-      <button
-        btn m-3 text-sm
-        :disabled="!name"
-        @click="go"
-      >
-        {{ t('button.go') }}
-      </button>
+      <el-carousel indicator-position="outside">
+        <el-carousel-item v-for="it in imageSwiper" :key="it.id">
+          <img class="image" :src="it.url">
+          <div class="overlay">
+
+          </div>
+        </el-carousel-item>
+      </el-carousel>
     </div>
+    <div>
+      律所简介
+    </div>
+    <div>
+      律师名单
+    </div>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
   </div>
 </template>
 
-<route lang="yaml">
-meta:
-  layout: home
-</route>
+<style scoped>
+:deep(.el-carousel) {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+:deep(.el-carousel__container) {
+  width: 100vw;
+  height: 100vh;
+}
+
+.image {
+  width: 100vw;
+  height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: rgb(34 47 70 / 72%);
+  width: 100%;
+  height: 100%;
+}
+</style>
