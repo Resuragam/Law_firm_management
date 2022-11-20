@@ -11,18 +11,19 @@ const handleSelect = (key: string, keyPath: string[]) => {
   <main>
     <div class="menu-container">
       <el-menu
-        :default-active="route.path"
+        class="el-menu-demo el-menu-container"
         mode="horizontal"
-        :router="true"
-        background-color="#10102D"
-        text-color="#fff"
-        active-text-color="#C89D66"
+        :ellipsis="false"
         @select="handleSelect"
       >
-        <el-menu-item index="/" :route="{ path: '/' }">Processing Center</el-menu-item>
-        <el-menu-item index="/lawyer" :route="{ path: '/lawyer' }">Processing Center</el-menu-item>
-        <el-menu-item index="/legal" :route="{ path: '/legal' }">Info</el-menu-item>
-        <el-menu-item index="/my" :route="{ path: '/my' }">Orders</el-menu-item>
+        <div index="0" class="logo">
+          123律师事务所
+        </div>
+        <div class="flex-grow" />
+          <el-menu-item index="/" :route="{ path: '/' }">主页</el-menu-item>
+          <el-menu-item index="/lawyer" :route="{ path: '/lawyer' }">律师名单</el-menu-item>
+          <el-menu-item index="/legal" :route="{ path: '/legal' }">法律咨询</el-menu-item>
+          <el-menu-item index="/my" :route="{ path: '/my' }">我的</el-menu-item>
       </el-menu>
     </div>
     <RouterView />
@@ -34,14 +35,14 @@ const handleSelect = (key: string, keyPath: string[]) => {
   position: fixed;
   z-index: 999;
   width: 100vw;
-  background-color: #10102D !important;
 }
-
-:deep(.el-menu--horizontal) {
-  border-bottom: none !important;
+.el-menu-container {
+  padding:0 10vw;
 }
-
-:deep(.el-menu--horizontal>.el-menu-item.is-active) {
-  border-bottom: none !important;
+.logo {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  align-items: center;
 }
 </style>

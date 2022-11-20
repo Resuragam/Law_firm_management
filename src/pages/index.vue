@@ -26,42 +26,34 @@ const imageSwiper = reactive([
         <el-carousel-item v-for="it in imageSwiper" :key="it.id">
           <img class="image" :src="it.url">
           <div class="overlay">
-
+            <div class="text-3rem text-white my-1rem">
+              123律师事务所
+            </div>
+            <div class="text-2rem text-white">
+              专业为客户争取合法利益途径
+            </div>
+            <div class="text-2rem text-white">
+              以当事人权益为中心，定义每一场诉讼
+            </div>
           </div>
         </el-carousel-item>
       </el-carousel>
     </div>
-    <div>
-      律所简介
+    <div class="flex justify-center">
+      <law-firm-intro></law-firm-intro>
     </div>
-    <div>
+    <div class="text-2rem font-blod flex justify-center my-2rem">
+      咨询业务
+    </div>
+    <div class="flex justify-center">
+      <law-list></law-list>
+    </div>
+    <div class="text-2rem font-blod flex justify-center my-2rem">
       律师名单
     </div>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
+    <div class="flex justify-center">
+      <lawer-list></lawer-list>
+    </div>
   </div>
 </template>
 
@@ -89,5 +81,10 @@ const imageSwiper = reactive([
   background-color: rgb(34 47 70 / 72%);
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10vw;
 }
+
 </style>
