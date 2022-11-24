@@ -13,6 +13,7 @@ const handleSelect = (key: string, keyPath: string[]) => {
       <el-menu
         class="el-menu-demo el-menu-container"
         mode="horizontal"
+        :router="true"
         :ellipsis="false"
         @select="handleSelect"
       >
@@ -21,11 +22,12 @@ const handleSelect = (key: string, keyPath: string[]) => {
         </div>
         <div class="flex-grow" />
           <el-menu-item index="/" :route="{ path: '/' }">主页</el-menu-item>
-          <el-menu-item index="/lawyer" :route="{ path: '/lawyer' }">律师名单</el-menu-item>
+          <el-menu-item index="/lawyer" :route="{ path: '/lawyer' }">律师团队</el-menu-item>
           <el-menu-item index="/legal" :route="{ path: '/legal' }">法律咨询</el-menu-item>
-          <el-menu-item index="/my" :route="{ path: '/my' }">我的</el-menu-item>
+          <el-menu-item index="/my" :route="{ path: '/my' }">团队介绍</el-menu-item>
       </el-menu>
     </div>
+    <div class="h-59px"></div>
     <RouterView />
   </main>
 </template>

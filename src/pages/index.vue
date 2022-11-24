@@ -1,20 +1,20 @@
 <script setup lang="ts">
-// import image1 from '../../public/swiper/as1.jpg'
-// import image2 from '../../public/swiper/as2.jpg'
-// import image3 from '../../public/swiper/as3.jpg'
+import image1 from '../../public/swiper/7.jpg'
+import image2 from '../../public/swiper/as2.jpg'
+import image3 from '../../public/swiper/8.jpg'
 
 const imageSwiper = reactive([
   {
     id: 1,
-    url: '../../../public/swiper/as2.jpg',
+    url: image2,
   },
   {
     id: 2,
-    url: '../../../public/swiper/7.jpg',
+    url: image1,
   },
   {
     id: 3,
-    url: '../../../public/swiper/8.jpg',
+    url: image3,
   },
 ])
 </script>
@@ -42,13 +42,13 @@ const imageSwiper = reactive([
     <div class="flex justify-center">
       <law-firm-intro></law-firm-intro>
     </div>
-    <div class="text-2rem font-blod flex justify-center my-2rem">
+    <div class="text-2rem flex justify-center my-2rem">
       咨询业务
     </div>
     <div class="flex justify-center">
       <law-list></law-list>
     </div>
-    <div class="text-2rem font-blod flex justify-center my-2rem">
+    <div class="text-2rem flex justify-center my-2rem">
       律师名单
     </div>
     <div class="flex justify-center">
