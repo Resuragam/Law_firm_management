@@ -6,7 +6,7 @@ export function login(userName: string, password: string) {
     method: 'post',
     url: '/infoservice/lawyerUser/login',
     data: {
-      userName,
+      username: userName,
       password,
     },
   })

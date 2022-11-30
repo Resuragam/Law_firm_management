@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElMessage } from "element-plus"
+import Cookies from 'js-cookie'
+import { ElMessage } from 'element-plus'
 import { login } from '../../api/login'
 
 const router = useRouter()
@@ -14,6 +15,7 @@ const clickLogin = () => {
         type: 'success',
         message: '登录成功',
       })
+      Cookies.set('token', '1')
       router.push('/')
     }
     else {

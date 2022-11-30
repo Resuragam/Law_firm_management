@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-
+import Cookies from 'js-cookie'
 const route = useRoute()
+const router = useRouter()
 const handleSelect = (key: string, keyPath: string[]) => {
   console.warn(key, keyPath)
+}
+const removeLogin = () => {
+  Cookies.remove('token')
+  location.reload()
 }
 </script>
 
@@ -25,6 +30,9 @@ const handleSelect = (key: string, keyPath: string[]) => {
           <el-menu-item index="/lawyer" :route="{ path: '/lawyer' }">律师团队</el-menu-item>
           <el-menu-item index="/legal" :route="{ path: '/legal' }">法律咨询</el-menu-item>
           <el-menu-item index="/my" :route="{ path: '/my' }">团队介绍</el-menu-item>
+        <el-menu-item v-if="Cookies.get('token') === '1'" index="/modify" :route="{ path: '/modify' }" >修改律师</el-menu-item>
+        <el-menu-item v-if="Cookies.get('token') === '1'" index="/" :route="{ path: '/' }" @click="removeLogin" >退出登录</el-menu-item>
+        <el-menu-item v-if="Cookies.get('token') !== '1'" index="/login" :route="{ path: '/login' }">登录</el-menu-item>
       </el-menu>
     </div>
     <div class="h-59px"></div>
