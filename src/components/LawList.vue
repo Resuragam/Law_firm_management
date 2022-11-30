@@ -7,28 +7,28 @@ const list = reactive([
   },
   {
     id: 2,
-    name: '婚姻纠纷',
-    img: 'https://jmy-pic.baidu.com/0/pic/1280988362_1486595891_907317043.jpg',
+    name: '交通事故',
+    img: 'https://jmy-pic.baidu.com/0/pic/-66727369_-999258735_-1207639210.jpg',
   },
   {
     id: 3,
-    name: '婚姻纠纷',
-    img: 'https://jmy-pic.baidu.com/0/pic/1280988362_1486595891_907317043.jpg',
+    name: '房产纠纷',
+    img: 'https://jmy-pic.baidu.com/0/pic/622897678_1616885428_-2071429923.jpg',
   },
   {
     id: 4,
-    name: '婚姻纠纷',
-    img: 'https://jmy-pic.baidu.com/0/pic/1280988362_1486595891_907317043.jpg',
+    name: '损害赔偿',
+    img: 'https://jmy-pic.baidu.com/0/pic/1871054758_-1440801127_-1600493372.jpg',
   },
   {
     id: 5,
-    name: '婚姻纠纷',
-    img: 'https://jmy-pic.baidu.com/0/pic/1280988362_1486595891_907317043.jpg',
+    name: '刑事辩护',
+    img: 'https://jmy-pic.baidu.com/0/pic/-792801333_94916272_1286970479.jpg',
   },
   {
     id: 6,
-    name: '婚姻纠纷',
-    img: 'https://jmy-pic.baidu.com/0/pic/1280988362_1486595891_907317043.jpg',
+    name: '合同纠纷',
+    img: 'https://jmy-pic.baidu.com/0/pic/688319697_1317404916_1053410260.jpg',
   },
 ])
 </script>
