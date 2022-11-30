@@ -1,32 +1,35 @@
 <script setup lang="ts">
-const list = reactive([
-  {
-    id: 1,
-    name: '张三',
-    img: 'https://jmy-pic.baidu.com/0/pic/36010732_-1840539486_-2050336113.jpg',
-  },
-  {
-    id: 2,
-    name: '李四',
-    img: 'https://jmy-pic.baidu.com/0/pic/36010732_-1840539486_-2050336113.jpg',
-  },
-  {
-    id: 2,
-    name: '王五',
-    img: 'https://jmy-pic.baidu.com/0/pic/36010732_-1840539486_-2050336113.jpg',
-  },
-])
+import { findAllLawyer } from '~/api/lawyer'
+
+const list = ref([])
+const router = useRouter()
+onMounted(() => {
+  findAllLawyer().then((res) => {
+    list.value = res.data.lawters
+  })
+})
+
+const toDetail = (item: any) => {
+  router.push({
+    path: '/lawyer/detail',
+    query: item,
+  })
+}
 </script>
 
 <template>
   <div class="grid grid-cols-4">
-    <el-card v-for="it in list" :key="it.id" :body-style="{ padding: '0px' }" shadow="hover">
+    <el-card v-for="it in list" :key="it.id" :body-style="{ padding: '0px' }" shadow="hover" @click="toDetail(it)">
       <img
-        :src="it.img"
-      />
+        :src="it.pic"
+      >
       <div style="padding: 14px">
-        <div class="text-center text-1.2rem">{{ it.name }}</div>
-        <div class="text-center text-1rem font-100">优秀律师</div>
+        <div class="text-center text-1.2rem">
+          {{ it.name }}
+        </div>
+        <div class="text-center text-1rem font-100">
+          优秀律师
+        </div>
       </div>
     </el-card>
   </div>
