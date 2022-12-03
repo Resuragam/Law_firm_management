@@ -40,4 +40,9 @@ const toDetail = (item: any) => {
   margin: 1rem;
   width: 253px;
 }
+
+img {
+  width: 253px;
+  height: 253px;
+}
 </style>

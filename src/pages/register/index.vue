@@ -1,43 +1,24 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import Cookies from 'js-cookie'
-import { ElMessage } from 'element-plus'
-import { login } from '../../api/login'
-
+<script setup lang="ts" >
 const router = useRouter()
-const userName = ref('')
+const name = ref('')
 const password = ref('')
+const register = () => {
 
-const clickLogin = () => {
-  login(userName.value, password.value).then((res: any) => {
-    if (res.code === 20000) {
-      ElMessage({
-        type: 'success',
-        message: '登录成功',
-      })
-      Cookies.set('token', '1')
-      router.push('/')
-    }
-    else {
-      ElMessage({
-        type: 'error',
-        message: '登录失败，请重试',
-      })
-    }
-  })
 }
 </script>
 
 <template>
-  <div class="loginBox">
-    <form action="" class="login">
-      <p>登录</p>
-      <input type="text" placeholder="用户名" v-model="userName" />
-      <input type="password" placeholder="密码" v-model="password" />
-      <input type="button" class="btn" value="登  录" @click.prevent="clickLogin" />
-      <div class="register">
-        没有账号?
-        <a @click.prevent="router.push('/register')">点击注册</a>
+  <div class="registerBox">
+    <form class="register">
+      <p>注册</p>
+      <input type="text" v-model="name" id="name" placeholder="请输入用户名">
+      <input type="text" v-model="password" id="password" placeholder="请输入密码">
+      <div>
+        <input type="button" value="注册" @click.prevent="register" class="btn">
+      </div>
+      <div class="login">
+        已有账号?
+        <a @click.prevent="router.push('/login')">点击登录</a>
       </div>
     </form>
   </div>
@@ -50,13 +31,14 @@ const clickLogin = () => {
   margin: 0;
   /* 无法选中，整体感更强 */
 }
-.loginBox{
+.registerBox{
+  background: url(https://w.wallhaven.cc/full/8o/wallhaven-8ogod1.jpg) no-repeat;
   background-size: cover;
-  background: url(https://w.wallhaven.cc/full/8o/wallhaven-8ogod1.jpg) no-repeat fixed;
+  background-attachment: fixed;
   height: 100vh;
   width: 100vw;
 }
-.login {
+.register {
   position: absolute;
   top: 50%;
   margin-top: -200px;
@@ -102,7 +84,7 @@ select {
 .btn:hover {
   background-color: #59c2a0;
 }
-.register {
+.login {
   padding-left: 210px;
   font-size: 10px;
 }
