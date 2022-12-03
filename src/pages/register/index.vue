@@ -1,9 +1,26 @@
-<script setup lang="ts" >
+<script setup lang="ts">
+import { ElMessage } from 'element-plus'
+import { register } from '../../api/login'
 const router = useRouter()
 const name = ref('')
+const mobile = ref('')
 const password = ref('')
-const register = () => {
-
+const clickRegister = () => {
+  register(name.value, mobile.value, password.value).then((res: any) => {
+    if (res.code === 20000) {
+      ElMessage({
+        type: 'success',
+        message: '注册成功',
+      })
+      router.push('/login')
+    }
+    else {
+      ElMessage({
+        type: 'error',
+        message: '注册失败,请重试！',
+      })
+    }
+  })
 }
 </script>
 
@@ -11,10 +28,11 @@ const register = () => {
   <div class="registerBox">
     <form class="register">
       <p>注册</p>
-      <input type="text" v-model="name" id="name" placeholder="请输入用户名">
-      <input type="text" v-model="password" id="password" placeholder="请输入密码">
+      <input id="name" v-model="name" type="text" placeholder="请输入用户名">
+      <input id="name" v-model="mobile" type="text" placeholder="请输入手机号">
+      <input id="password" v-model="password" type="text" placeholder="请输入密码">
       <div>
-        <input type="button" value="注册" @click.prevent="register" class="btn">
+        <input type="button" value="注册" class="btn" @click.prevent="clickRegister">
       </div>
       <div class="login">
         已有账号?

@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     LawerList: typeof import('./components/LawerList.vue')['default']
     LawFirmIntro: typeof import('./components/LawFirmIntro.vue')['default']
     LawList: typeof import('./components/LawList.vue')['default']
+    OtherLawyer: typeof import('./components/OtherLawyer.vue')['default']
     README: typeof import('./components/README.md')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

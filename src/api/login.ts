@@ -11,3 +11,17 @@ export function login(userName: string, password: string) {
     },
   })
 }
+
+// 注册
+export function register(userName: string, mobile: string, password: string) {
+  return request({
+    method: 'post',
+    url: '/infoservice/lawyerUser/register',
+    data: {
+      username: userName,
+      mobile,
+      password,
+      roleId: 0,
+    },
+  })
+}
