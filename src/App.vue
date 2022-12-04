@@ -2,6 +2,7 @@
 // https://github.com/vueuse/head
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
+import m from '../public/Burt.mp3'
 useHead({
   title: 'Vitesse',
   meta: [
@@ -19,8 +20,25 @@ useHead({
     },
   ],
 })
+
+onMounted(() => {
+  const audioPlay = document.getElementById('myaudio')
+})
 </script>
 
 <template>
   <RouterView />
+  <audio controls src="/Burt.mp3">
+    <a href="/Burt.mp3">
+      Download audio
+    </a>
+  </audio>
 </template>
+
+<style>
+audio {
+  position: fixed;
+  top: 100px;
+  left: 50px;
+}
+</style>
